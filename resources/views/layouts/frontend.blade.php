@@ -125,6 +125,8 @@
             <nav class="nav nav-underline justify-content-between">
                 <a class="nav-item nav-link link-body-emphasis active" href="{{route('template_inicio')}}">Home</a>
                 <a class="nav-item nav-link link-body-emphasis" href="{{route('formularios_inicio')}}">Formulario</a>
+                <a class="nav-item nav-link link-body-emphasis" href="{{route('helper_inicio')}}">Helper</a>
+
             </nav>
         </div>
     </div>
