@@ -125,7 +125,7 @@
             <nav class="nav nav-underline justify-content-between">
                 <a class="nav-item nav-link link-body-emphasis active" href="{{route('template_inicio')}}">Home</a>
                 <a class="nav-item nav-link link-body-emphasis" href="{{route('formularios_inicio')}}">Formulario</a>
-                <a class="nav-item nav-link link-body-emphasis" href="{{route('helper_inicio')}}">Helper</a>
+                <a class="nav-item nav-link link-body-emphasis" href="{{route('bd_inicio')}}">Bd</a>
 
             </nav>
         </div>
@@ -136,12 +136,12 @@
         <!--/Contenido-->
     </main>
     <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
-        <p>Todos los derechos reservaos</a>.</p>
+        <p>Todos los derechos reservados.</p>
     </footer>
-    <script src="{{ asset('js/jquery-2.0.0.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.js') }}"></script>
-    <script src="{{ asset('js/jqery.alerts.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/funciones') }}"></script>
+    <script src="{{asset('js/jquery-2.0.0.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.js')}}"></script>
+    <script src="{{asset('js/jquery.alerts.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/funciones.js')}}?id={{ csrf_token() }}"></script>
     @stack('js')
 </body>
 

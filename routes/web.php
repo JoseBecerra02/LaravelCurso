@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\FormulariosController;
 use App\Http\Controllers\HelperController;
+use App\Http\Controllers\BdController;
 
 
 Route::get('/', [HomeController::class, 'home_inicio'])->name('home_inicio');
@@ -26,6 +27,15 @@ Route::post('/formularios/upload', [FormulariosController::class, 'formularios_u
 
 Route::get('/helper', [HelperController::class, 'helper_inicio'])->name('helper_inicio');
 
+Route::get('/bd', [BdController::class, 'bd_inicio'])->name('bd_inicio');
+Route::get('/bd/profesores', [BdController::class, 'bd_profesores'])->name('bd_profesores');
+Route::get('/bd/profesores/add', [BdController::class, 'bd_profesores_add'])->name('bd_profesores_add');
+Route::post('/bd/profesores/add', [BdController::class, 'bd_profesores_add_post'])->name('bd_profesores_add_post');
+Route::get('/bd/profesores/edit/{id}', [BdController::class, 'bd_profesores_edit'])->name('bd_profesores_edit');
+Route::post('/bd/profesores/edit/{id}', [BdController::class, 'bd_profesores_edit_post'])->name('bd_profesores_edit_post');
+Route::get('/bd/profesores/delete/{id}', [BdController::class, 'bd_profesores_delete'])->name('bd_profesores_delete');
 
-
+Route::get('/bd/clases', [BdController::class, 'bd_clases'])->name('bd_clases');
+Route::get('/bd/clases/add', [BdController::class, 'bd_clases_add'])->name('bd_clases_add');
+Route::post('/bd/clases/add', [BdController::class, 'bd_clases_add_post'])->name('bd_clases_add_post');
 
