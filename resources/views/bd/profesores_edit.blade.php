@@ -1,7 +1,7 @@
 @extends('../layouts.frontend')
 
 @section('content')
-    <h1>Crear profesor</h1>
+    <h1>Editar profesor</h1>
     <x-flash />
     <form action="{{route('bd_profesores_edit_post', ['id'=>$profesor->id])}}" method="POST">
         @csrf

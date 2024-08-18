@@ -10,13 +10,12 @@
         <table class="table table-bordered  table-striped table-hover">
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Nombre</th>
-                    <th>Edad</th>
-                    <th>Documento</th>
-                    <th>Titulo</th>
-                    <th>Vinculacion</th>
-                    <th>Acciones</th>
+                    <th><a href="{{route('bd_profesores',['filtro' => 'id'])}}">Id</a></th>
+                    <th><a href="{{route('bd_profesores',['filtro' => 'nombre'])}}">Nombre</a></th>
+                    <th><a href="{{route('bd_profesores',['filtro' => 'edad'])}}">Edad</a></th>
+                    <th><a href="{{route('bd_profesores',['filtro' => 'documento'])}}">Documento</a></th>
+                    <th><a href="{{route('bd_profesores',['filtro' => 'titulo'])}}">Titulo</a></th>
+                    <th><a href="{{route('bd_profesores',['filtro' => 'vinculacion'])}}">Vinculacion</a></th>
                 </tr>
             </thead>
             <tbody>

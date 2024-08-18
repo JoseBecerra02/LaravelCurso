@@ -10,11 +10,11 @@
         <table class="table table-bordered  table-striped table-hover">
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Nombre</th>
-                    <th>Profesor</th>
-                    <th>Jornada</th>
-                    <th>Estudiantes</th>
+                    <th><a href="{{route('bd_clases',['filtro' => 'id'])}}">Id</a></th>
+                    <th><a href="{{route('bd_clases',['filtro' => 'nombre'])}}">Nombre</a></th>
+                    <th><a href="{{route('bd_clases',['filtro' => 'profesor_id'])}}">Profesor</a></th>
+                    <th><a href="{{route('bd_clases',['filtro' => 'jornada'])}}">Jornada</a></th>
+                    <th><a href="{{route('bd_clases',['filtro' => 'Estudiantes'])}}">Estudiantes</a></th>
                 </tr>
             </thead>
             <tbody>
@@ -25,7 +25,10 @@
                         <td>{{$clase->profesor->nombre}}</td>
                         <td>{{$clase->jornada}}</td>
                         <td>{{$clase->Estudiantes}}</td>
-                        
+                        <td>
+                            <a href="{{route('bd_clases_edit',['id'=>$clase->id])}}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                            <a href="javascript:void(0);" onclick="confirmaAlert('Realmente desea eliminarlo?','{{route('bd_clases_delete', ['id'=>$clase->id])}}')" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

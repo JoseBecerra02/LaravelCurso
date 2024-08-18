@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Clases;
+use App\Models\Clase;
 
 class Estudiantes extends Model
 {
@@ -13,8 +13,8 @@ class Estudiantes extends Model
     public $timestamps = false;
     protected $table = 'estudiantes';
 
-    public function clases(){
-        return $this->belongsTo(Clases::class);
+    public function clase(){
+        return $this->belongsTo(Clase::class);
     }
 
 }

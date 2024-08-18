@@ -36,6 +36,16 @@ Route::post('/bd/profesores/edit/{id}', [BdController::class, 'bd_profesores_edi
 Route::get('/bd/profesores/delete/{id}', [BdController::class, 'bd_profesores_delete'])->name('bd_profesores_delete');
 
 Route::get('/bd/clases', [BdController::class, 'bd_clases'])->name('bd_clases');
+Route::get('/bd/clases/{filtro}', [BdController::class, 'bd_clases_filtro'])->name('bd_clases_filtro');
 Route::get('/bd/clases/add', [BdController::class, 'bd_clases_add'])->name('bd_clases_add');
 Route::post('/bd/clases/add', [BdController::class, 'bd_clases_add_post'])->name('bd_clases_add_post');
+Route::get('/bd/clases/edit/{id}', [BdController::class, 'bd_clases_edit'])->name('bd_clases_edit');
+Route::post('/bd/clases/edit/{id}', [BdController::class, 'bd_clases_edit_post'])->name('bd_clases_edit_post');
+Route::get('/bd/clases/delete/{id}', [BdController::class, 'bd_clases_delete'])->name('bd_clases_delete');
 
+Route::get('/bd/estudiantes', [BdController::class, 'bd_estudiantes'])->name('bd_estudiantes');
+Route::get('/bd/estudiantes/add', [BdController::class, 'bd_estudiantes_add'])->name('bd_estudiantes_add');
+Route::post('/bd/estudiantes/add', [BdController::class, 'bd_estudiantes_add_post'])->name('bd_estudiantes_add_post');
+Route::get('/bd/estudiantes/edit/{id}', [BdController::class, 'bd_estudiantes_edit'])->name('bd_estudiantes_edit');
+Route::post('/bd/estudiantes/edit/{id}', [BdController::class, 'bd_estudiantes_edit_post'])->name('bd_estudiantes_edit_post');
+Route::get('/bd/estudiantes/delete/{id}', [BdController::class, 'bd_estudiantes_delete'])->name('bd_estudiantes_delete');
