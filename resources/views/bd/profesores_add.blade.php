@@ -3,7 +3,7 @@
 @section('content')
     <h1>Crear profesor</h1>
     <x-flash />
-    <form action="{{route('bd_profesores_add')}}" method="POST">
+    <form action="{{route('profesor.store')}}" method="POST">
         @csrf
         <div class="form-group">
             <label for="nombre" class="form-label">Nombre</label>

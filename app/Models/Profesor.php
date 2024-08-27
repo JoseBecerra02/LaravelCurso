@@ -11,4 +11,13 @@ class Profesor extends Model
     protected $guarded = [];
     public $timestamps = false;
     protected $table = 'profesores';
+
+    protected $casts = [
+        'vinculacion' => 'date',
+    ];
+
+    public function clases()
+    {
+        return $this->hasMany(Clase::class);
+    }
 }

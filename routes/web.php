@@ -5,9 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\FormulariosController;
+use App\Http\Controllers\ClaseController;
+use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\HelperController;
 use App\Http\Controllers\BdController;
-
+use App\Http\Controllers\ProfesorController;
 
 Route::get('/', [HomeController::class, 'home_inicio'])->name('home_inicio');
 Route::get('/hola', [HomeController::class, 'home_hola'])->name('home_hola');
@@ -27,25 +29,29 @@ Route::post('/formularios/upload', [FormulariosController::class, 'formularios_u
 
 Route::get('/helper', [HelperController::class, 'helper_inicio'])->name('helper_inicio');
 
+Route::get('/profesores', [ProfesorController::class, 'index'])->name('profesor.index');
+Route::get('/profesores/create', [ProfesorController::class, 'create'])->name('profesor.create');
+Route::post('/profesores', [ProfesorController::class, 'store'])->name('profesor.store');
+Route::get('/profesores/{id}', [ProfesorController::class, 'show'])->name('profesor.show');
+Route::get('/profesores/{id}/edit', [ProfesorController::class, 'edit'])->name('profesor.edit');
+Route::post('/profesores-update/{id}', [ProfesorController::class, 'update'])->name('profesor.update');
+Route::post('/profesores/{id}', [ProfesorController::class, 'destroy'])->name('profesor.destroy');
+
+Route::get('/clase', [ClaseController::class, 'index'])->name('clase.index');
+Route::get('/clase/create', [ClaseController::class, 'create'])->name('clase.create');
+Route::post('/clase', [ClaseController::class, 'store'])->name('clase.store');
+Route::get('/clase/{id}', [ClaseController::class, 'show'])->name('clase.show');
+Route::get('/clase/{id}/edit', [ClaseController::class, 'edit'])->name('clase.edit');
+Route::post('/clase-update/{id}', [ClaseController::class, 'update'])->name('clase.update');
+Route::post('/clase/{id}', [ClaseController::class, 'destroy'])->name('clase.destroy');
+
+Route::get('/estudiantes', [EstudianteController::class, 'index'])->name('estudiante.index');
+Route::get('/estudiantes/create', [EstudianteController::class, 'create'])->name('estudiante.create');
+Route::post('/estudiantes', [EstudianteController::class, 'store'])->name('estudiante.store');
+Route::get('/estudiantes/{id}', [EstudianteController::class, 'show'])->name('estudiante.show');
+Route::get('/estudiantes/{id}/edit', [EstudianteController::class, 'edit'])->name('estudiante.edit');
+Route::post('/estudiantes-update/{id}', [EstudianteController::class, 'update'])->name('estudiante.update');
+Route::post('/estudiantes/{id}', [EstudianteController::class, 'destroy'])->name('estudiante.destroy');
+
+
 Route::get('/bd', [BdController::class, 'bd_inicio'])->name('bd_inicio');
-Route::get('/bd/profesores', [BdController::class, 'bd_profesores'])->name('bd_profesores');
-Route::get('/bd/profesores/add', [BdController::class, 'bd_profesores_add'])->name('bd_profesores_add');
-Route::post('/bd/profesores/add', [BdController::class, 'bd_profesores_add_post'])->name('bd_profesores_add_post');
-Route::get('/bd/profesores/edit/{id}', [BdController::class, 'bd_profesores_edit'])->name('bd_profesores_edit');
-Route::post('/bd/profesores/edit/{id}', [BdController::class, 'bd_profesores_edit_post'])->name('bd_profesores_edit_post');
-Route::get('/bd/profesores/delete/{id}', [BdController::class, 'bd_profesores_delete'])->name('bd_profesores_delete');
-
-Route::get('/bd/clases', [BdController::class, 'bd_clases'])->name('bd_clases');
-Route::get('/bd/clases/{filtro}', [BdController::class, 'bd_clases_filtro'])->name('bd_clases_filtro');
-Route::get('/bd/clases/add', [BdController::class, 'bd_clases_add'])->name('bd_clases_add');
-Route::post('/bd/clases/add', [BdController::class, 'bd_clases_add_post'])->name('bd_clases_add_post');
-Route::get('/bd/clases/edit/{id}', [BdController::class, 'bd_clases_edit'])->name('bd_clases_edit');
-Route::post('/bd/clases/edit/{id}', [BdController::class, 'bd_clases_edit_post'])->name('bd_clases_edit_post');
-Route::get('/bd/clases/delete/{id}', [BdController::class, 'bd_clases_delete'])->name('bd_clases_delete');
-
-Route::get('/bd/estudiantes', [BdController::class, 'bd_estudiantes'])->name('bd_estudiantes');
-Route::get('/bd/estudiantes/add', [BdController::class, 'bd_estudiantes_add'])->name('bd_estudiantes_add');
-Route::post('/bd/estudiantes/add', [BdController::class, 'bd_estudiantes_add_post'])->name('bd_estudiantes_add_post');
-Route::get('/bd/estudiantes/edit/{id}', [BdController::class, 'bd_estudiantes_edit'])->name('bd_estudiantes_edit');
-Route::post('/bd/estudiantes/edit/{id}', [BdController::class, 'bd_estudiantes_edit_post'])->name('bd_estudiantes_edit_post');
-Route::get('/bd/estudiantes/delete/{id}', [BdController::class, 'bd_estudiantes_delete'])->name('bd_estudiantes_delete');

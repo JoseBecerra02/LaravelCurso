@@ -3,7 +3,7 @@
 @section('content')
     <h1>Editar estudiante</h1>
     <x-flash />
-    <form action="{{route('bd_estudiantes_edit_post', ['id'=>$estudiante->id])}}" method="POST">
+    <form action="{{route('estudiante.update', ['id'=>$estudiante->id])}}" method="POST">
         @csrf
         <div class="form-group">
             <label for="nombre" class="form-label">Nombre</label>

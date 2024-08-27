@@ -4,17 +4,17 @@
     <h1>Clases</h1>
     <x-flash />
     <p class="d-flex justify-content-end">
-        <a href="{{route('bd_clases_add')}}" class="btn btn-success"><i class="fas fa-check"></i> Crear</a>
+        <a href="{{route('clase.create')}}" class="btn btn-success"><i class="fas fa-check"></i> Crear</a>
     </p>
     <div class="table-responsive">
         <table class="table table-bordered  table-striped table-hover">
             <thead>
                 <tr>
-                    <th><a href="{{route('bd_clases',['filtro' => 'id'])}}">Id</a></th>
-                    <th><a href="{{route('bd_clases',['filtro' => 'nombre'])}}">Nombre</a></th>
-                    <th><a href="{{route('bd_clases',['filtro' => 'profesor_id'])}}">Profesor</a></th>
-                    <th><a href="{{route('bd_clases',['filtro' => 'jornada'])}}">Jornada</a></th>
-                    <th><a href="{{route('bd_clases',['filtro' => 'Estudiantes'])}}">Estudiantes</a></th>
+                    <th><a href="{{route('clase.index',['filtro' => 'id'])}}">Id</a></th>
+                    <th><a href="{{route('clase.index',['filtro' => 'nombre'])}}">Nombre</a></th>
+                    <th><a href="{{route('clase.index',['filtro' => 'profesor_id'])}}">Profesor</a></th>
+                    <th><a href="{{route('clase.index',['filtro' => 'jornada'])}}">Jornada</a></th>
+                    <th><a href="{{route('clase.index',['filtro' => 'Estudiantes'])}}">Estudiantes</a></th>
                 </tr>
             </thead>
             <tbody>
@@ -26,8 +26,11 @@
                         <td>{{$clase->jornada}}</td>
                         <td>{{$clase->Estudiantes}}</td>
                         <td>
-                            <a href="{{route('bd_clases_edit',['id'=>$clase->id])}}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                            <a href="javascript:void(0);" onclick="confirmaAlert('Realmente desea eliminarlo?','{{route('bd_clases_delete', ['id'=>$clase->id])}}')" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                            <a href="{{route('clase.edit',['id'=>$clase->id])}}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                            <form action="{{route('clase.destroy', ['id'=>$clase->id])}}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

@@ -3,7 +3,7 @@
 @section('content')
     <h1>Crear clase</h1>
     <x-flash />
-    <form action="{{route('bd_clases_add')}}" method="POST">
+    <form action="{{route('clase.store')}}" method="POST">
         @csrf
         <div class="form-group">
             <label for="nombre" class="form-label">Nombre</label>
