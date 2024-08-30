@@ -1,10 +1,14 @@
 @extends('../layouts.frontend')
 
 @section('content')
-    <h1>Profesores</h1>
+<h1 class="text-center py-3" style="background-color: #ffebcd ; border-radius: 5px; font-family: 'Roboto', sans-serif;">Profesores</h1>
+
     <x-flash />
     <p class="d-flex justify-content-end">
-        <a href="{{route('profesor.create')}}" class="btn btn-success"><i class="fas fa-check"></i> Crear</a>
+        @if (session('perfil_id') == 1)
+            <a href="{{route('profesor.create')}}" class="btn btn-success"><i class="fas fa-check"></i> Crear</a>
+        @endif
+        {{-- <a href="{{route('profesor.create')}}" class="btn btn-success"><i class="fas fa-check"></i> Crear</a> --}}
     </p>
     <div class="table-responsive">
         <table class="table table-bordered  table-striped table-hover">

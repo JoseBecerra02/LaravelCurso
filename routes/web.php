@@ -10,24 +10,12 @@ use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\HelperController;
 use App\Http\Controllers\BdController;
 use App\Http\Controllers\ProfesorController;
+use App\Http\Controllers\AccesoContoller;
+use App\Http\Controllers\ProtegidaController;
 
 Route::get('/', [HomeController::class, 'home_inicio'])->name('home_inicio');
-Route::get('/hola', [HomeController::class, 'home_hola'])->name('home_hola');
-Route::get('/parametros/{id}/{slug}', [HomeController::class, 'home_parametros'])->name('home_parametros');
 
-Route::get('/template', [TemplateController::class, 'template_inicio'])->name('template_inicio');
-Route::get('/template/stack', [TemplateController::class, 'template_stack'])->name('template_stack');
 
-Route::get('/formularios', [FormulariosController::class, 'formularios_inicio'])->name('formularios_inicio');
-Route::get('/formularios/simple', [FormulariosController::class, 'formularios_simple'])->name('formularios_simple');
-Route::post('/formularios/simple', [FormulariosController::class, 'formularios_simple_post'])->name('formularios_simple_post');
-Route::get('/formularios/flash', [FormulariosController::class, 'formularios_flash'])->name('formularios_flash');
-Route::get('/formularios/flash2', [FormulariosController::class, 'formularios_flash2'])->name('formularios_flash2');
-Route::get('/formularios/flash3', [FormulariosController::class, 'formularios_flash3'])->name('formularios_flash3');
-Route::get('/formularios/upload', [FormulariosController::class, 'formularios_upload'])->name('formularios_upload');
-Route::post('/formularios/upload', [FormulariosController::class, 'formularios_upload_post'])->name('formularios_upload_post');
-
-Route::get('/helper', [HelperController::class, 'helper_inicio'])->name('helper_inicio');
 
 Route::get('/profesores', [ProfesorController::class, 'index'])->name('profesor.index');
 Route::get('/profesores/create', [ProfesorController::class, 'create'])->name('profesor.create');
@@ -55,3 +43,13 @@ Route::post('/estudiantes/{id}', [EstudianteController::class, 'destroy'])->name
 
 
 Route::get('/bd', [BdController::class, 'bd_inicio'])->name('bd_inicio');
+
+Route::get('/acceso/login', [AccesoContoller::class, 'acceso_login'])->name('acceso_login');
+Route::post('/acceso/login', [AccesoContoller::class, 'acceso_login_post'])->name('acceso_login_post');
+Route::get('/acceso/logout', [AccesoContoller::class, 'acceso_logout'])->name('acceso_logout');
+Route::get('/acceso/registro', [AccesoContoller::class, 'acceso_registro'])->name('acceso_registro');
+Route::post('/acceso/registro', [AccesoContoller::class, 'acceso_registro_post'])->name('acceso_registro_post');
+
+Route::get('/protegida', [ProtegidaController::class, 'protegida_inicio'])->name('protegida_inicio');
+Route::get('/protegida/otra', [ProtegidaController::class, 'protegida_otra'])->name('protegida_otra');
+Route::get('/protegida/sin-acceso', [ProtegidaController::class, 'protegida_sin_acceso'])->name('protegida_sin_acceso');
